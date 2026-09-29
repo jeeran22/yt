@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222 47% 6%;
+  --foreground: 220 20% 94%;
+  --card: 222 36% 11%;
+  --card-foreground: 220 20% 94%;
+  --muted: 222 30% 15%;
+  --muted-foreground: 220 12% 66%;
+  --border: 222 28% 20%;
+  --primary: 187 92% 43%;
+  --primary-foreground: 222 47% 6%;
+  --radius: 0.9rem;
+}
+
+* { border-color: hsl(var(--border)); }
+html, body { height: 100%; }
+
+body {
+  @apply bg-graphite-950 text-slate-100 antialiased;
+  background-image:
+    radial-gradient(900px 380px at 12% -6%, rgba(6,182,212,0.12), transparent 60%),
+    radial-gradient(900px 420px at 88% -8%, rgba(168,85,247,0.14), transparent 60%),
+    radial-gradient(1200px 600px at 50% 120%, rgba(6,182,212,0.05), transparent 60%);
+  background-attachment: fixed;
+}
+
+::selection { background: rgba(6,182,212,0.35); }
+
+/* scrollbars */
+* { scrollbar-width: thin; scrollbar-color: #2b3650 transparent; }
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-thumb { background: #2b3650; border-radius: 999px; }
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* range slider */
+input[type="range"].studio-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--fill, #06b6d4) var(--pct, 50%), #232c44 var(--pct, 50%));
+  outline: none;
+}
+input[type="range"].studio-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--fill, #06b6d4);
+  box-shadow: 0 0 14px var(--fill, rgba(6,182,212,.6));
+  cursor: pointer;
+}
+input[type="range"].studio-range::-moz-range-thumb {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--fill, #06b6d4);
+  cursor: pointer;
+}
+
+.card-ring {
+  @apply rounded-2xl border border-slate-700/60 bg-graphite-800/80 shadow-card backdrop-blur;
+}
+.card-ring:hover { border-color: rgb(71 85 105 / 0.9); }
+
+.skeleton {
+  background: linear-gradient(90deg, #16203200 25%, #223052 37%, #16203200 63%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+@keyframes shimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }
+
+.clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
