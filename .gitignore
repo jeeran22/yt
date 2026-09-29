@@ -1,0 +1,7 @@
+node_modules
+.env
+frontenddplan.txt
+frontend_development_plan.md
+
+vite-err.log
+vite-out.log

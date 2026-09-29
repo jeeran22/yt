@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stability Studio — AI Image &amp; Video Generation</title>
+    <meta name="description" content="Image generation, text-to-video, image-to-video, clip stitching and campaign video wizards." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E" />
+    <script>
+      // Apply saved theme before first paint to avoid a flash of the wrong theme.
+      (function () {
+        var THEMES = ['dark', 'light', 'midnight', 'amethyst', 'solarized', 'oled', 'synthwave', 'sepia'];
+        try {
+          var saved = localStorage.getItem('studio-theme');
+          var theme = (saved && THEMES.indexOf(saved) >= 0) ? saved : null;
+          if (!theme) {
+            theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+            try { localStorage.setItem('studio-theme', theme); } catch (e) {}
+          }
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
